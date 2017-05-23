@@ -1,0 +1,19 @@
+{
+  "name": "applehomes",
+  "version": "1.0.0",
+  "description": "Website for Apple Homestay",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niwang55/applehomes.git"
+  },
+  "author": "Nicholas Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niwang55/applehomes/issues"
+  },
+  "homepage": "https://github.com/niwang55/applehomes#readme"
+}
