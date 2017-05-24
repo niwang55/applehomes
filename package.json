@@ -4,7 +4,8 @@
   "description": "Website for Apple Homestay",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "dev": "nodemon server/server.js & webpack-dev-server --content-base client --open --inline --hot"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,24 @@
   "bugs": {
     "url": "https://github.com/niwang55/applehomes/issues"
   },
-  "homepage": "https://github.com/niwang55/applehomes#readme"
+  "homepage": "https://github.com/niwang55/applehomes#readme",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "morgan": "^1.8.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router": "^2.8.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "webpack": "^1.14.0",
+    "compression-webpack-plugin": "^0.4.0",
+    "webpack-dev-server": "^1.14.1"
+  }
 }
