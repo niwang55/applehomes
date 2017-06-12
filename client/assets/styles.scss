@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+}
+
+.top-banner {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: black;
+  color: white;
+
+  .navbar {
+    display: flex;
+    margin-left: auto;
+    list-style-type: none;
+
+    li {
+      margin: 5px;
+
+      a {
+        text-decoration: none;
+
+        &:visited {
+          color: white;
+        }
+
+        &:hover {
+          color: lightblue;
+        }
+      }
+    }
+  }
+}

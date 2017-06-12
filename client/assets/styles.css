@@ -1,0 +1,23 @@
+body {
+  margin: 0; }
+
+.top-banner {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: black;
+  color: white; }
+  .top-banner .navbar {
+    display: flex;
+    margin-left: auto;
+    list-style-type: none; }
+    .top-banner .navbar li {
+      margin: 5px; }
+      .top-banner .navbar li a {
+        text-decoration: none; }
+        .top-banner .navbar li a:visited {
+          color: white; }
+        .top-banner .navbar li a:hover {
+          color: lightblue; }
+
+/*# sourceMappingURL=styles.css.map */
