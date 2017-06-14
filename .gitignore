@@ -1,3 +1,6 @@
+# Bundle
+client/compiled
+
 # Logs
 logs
 *.log

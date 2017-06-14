@@ -2,6 +2,10 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+
+const schemas = require('./schemas.js');
+let Home = schemas.Home;
 
 const app = express();
 
@@ -10,6 +14,9 @@ app.use(morgan('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(bodyParser.text({defaultCharset: 'utf-8'}));
+
+// Database
+mongoose.connect('mongodb://localhost/applehomes');
 
 app.use(express.static(path.join(__dirname, '../client')));
 
