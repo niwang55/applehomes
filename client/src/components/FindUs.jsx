@@ -6,7 +6,7 @@ export default class FindUs extends Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <h1>Find Us</h1>
       </div>

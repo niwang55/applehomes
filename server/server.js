@@ -20,7 +20,23 @@ mongoose.connect('mongodb://localhost/applehomes');
 
 app.use(express.static(path.join(__dirname, '../client')));
 
-app.get('*', function (req, res) {
+// Routes
+
+// Route for testing
+app.get('/api/test', (req, res) => {
+  Home.find({}, (err, homes) => {
+    res.send(homes);
+  });
+});
+
+// Route for getting list of homes
+app.get('/api/homes', (req, res) => {
+  Home.find({}, (err, homes) => {
+    res.send(homes);
+  });
+});
+
+app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client', 'index.html'));
 });
 

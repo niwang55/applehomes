@@ -4,6 +4,8 @@
   "description": "Website for Apple Homestay",
   "main": "index.js",
   "scripts": {
+    "start": "node server/server.js",
+    "startnodemon": "nodemon server/server.js",
     "test": "npm test",
     "dev": "nodemon server/server.js & webpack-dev-server --content-base client --open --inline --hot"
   },
@@ -18,7 +20,7 @@
   },
   "homepage": "https://github.com/niwang55/applehomes#readme",
   "dependencies": {
-    "axios": "^0.16.1",
+    "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "mongoose": "^4.10.5",

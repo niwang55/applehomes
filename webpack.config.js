@@ -30,11 +30,14 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     stats: 'error-only',
+    // Can use this proxy for /api/
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:3000',
         secure: false
       }
-    }
+    },
+    // Or can do this
+    // proxy: {'**': 'http://localhost:3000'}
   }
 };

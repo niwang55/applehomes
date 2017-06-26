@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import axios from 'axios';
 
@@ -14,6 +14,7 @@ import FindUs from './components/FindUs.jsx';
 ReactDOM.render((
   <Router history={ browserHistory }>
     <Route path="/" component={ Navbar }>
+      <IndexRoute component={ About } />
       <Route path="/about" component={ About } />
       <Route path="/homes" component={ Homes } />
       <Route path="/areas" component={ Areas } />

@@ -1,33 +1,132 @@
-body {
+body, h1, p {
   margin: 0;
+}
+
+html, body, #app, #app>div {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 .top-banner {
   display: flex;
+  font: 22px 'Crimson Text';
+  background: white;
   align-items: center;
-  padding: 15px;
-  background: black;
-  color: white;
+  padding: 10px;
+  width: 100%;
+  height: 60px;
+  z-index: 100;
+  position: fixed;
 
   .navbar {
     display: flex;
     margin-left: auto;
+    justify-content: flex-end;
     list-style-type: none;
+    margin-right: 15px;
 
     li {
       margin: 5px;
+      padding-right: 5px;
+      border-right: 1px solid;
 
       a {
         text-decoration: none;
 
         &:visited {
-          color: white;
+          color: black;
         }
 
         &:hover {
           color: lightblue;
         }
       }
+
+      &:last-child {
+        border: none;
+      }
     }
+  }
+}
+
+/*
+ About Page
+ */
+.about-page {
+  height: 100%;
+
+  .first-row {
+    color: white;
+    font: 40px 'Spectral';
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-image: url('photos/livingroom.jpeg');
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .second-row {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3f1f20;
+
+    .placard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font: 60px 'Spectral';
+      margin: 15px;
+      height: 300px;
+      width: 400px;
+      border-radius: 15px;
+    }
+
+    .homes-placard {
+      background-image: url('photos/door.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .areas-placard {
+      background-image: url('photos/city.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .gallery-placard {
+      background-image: url('photos/gallery.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+  }
+
+  .third-row {
+    width: 100%;
+    height: 75vh;
+    font: 24px 'Arapey';
+    background: #dee4ed;
+    background-image: url('photos/pencil.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

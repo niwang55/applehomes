@@ -7,7 +7,7 @@ export default class Navbar extends Component {
   }
 
   render() {
-    return(
+    return (
       <div>
 
         <div className="top-banner">
