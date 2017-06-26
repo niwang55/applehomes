@@ -10,6 +10,21 @@ a {
   text-decoration: none;
 }
 
+.general-button {
+  width: 150px;
+  height: 50px;
+  font: 22px 'Raleway';
+  background: #4b7ed1;
+  color: white;
+  border: none;
+
+  &:hover {
+    background: #749de0;
+    cursor: pointer;
+    color: gray;
+  }
+}
+
 .top-banner {
   display: flex;
   font: 22px 'Crimson Text';
@@ -128,5 +143,66 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+}
+
+/*
+ Home Page
+ */
+.home-page {
+  padding-top: 80px;
+}
+
+/*
+ Areas Page
+ */
+.areas-page {
+  padding-top: 80px;
+}
+
+/*
+ Find Us Page
+*/
+.findus-page {
+  padding-top: 80px;
+}
+
+/*
+ Gallery Page
+ */
+.gallery-page {
+  padding-top: 80px;
+}
+
+/*
+ New Home Page
+ */
+.newhome-page {
+  padding-top: 80px;
+  font: 20px 'Arapey';
+
+  h3 {
+    margin: 5px 15px;
+  }
+}
+
+.newhome-form {
+  display: flex;
+  flex-direction: column;
+  
+  * {
+    padding: 5px;
+    margin: 5px 15px;
+    border-radius: 5px;
+  }
+
+  .single-line-form {
+    margin: 0;
+    padding: 0;
+  }
+
+  label {
+    margin: 0;
+    padding: 0;
   }
 }

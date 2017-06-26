@@ -36,6 +36,14 @@ app.get('/api/homes', (req, res) => {
   });
 });
 
+app.post('/api/homes', (req, res) => {
+  Home.create(req.body, (err, home) => {
+    if (err) { console.log('Error in posting to homes', err); }
+    console.log('Added home to db');
+  });
+  res.end();
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client', 'index.html'));
 });

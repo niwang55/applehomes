@@ -40,7 +40,7 @@ export default class Areas extends Component {
 
   render() {
     return (
-      <div>
+      <div className="areas-page">
         <h1>Areas</h1>
         <h3>Here are a list of the areas where we have listings</h3>
         { this.state.areas && 

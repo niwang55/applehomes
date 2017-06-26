@@ -30,7 +30,7 @@ export default class Homes extends Component {
 
   render() {
     return (
-      <div>
+      <div className="home-page">
         <h1>Homes</h1>
         { this.state.homes &&
           this.state.homes.map(this.homesMap.bind(this))
