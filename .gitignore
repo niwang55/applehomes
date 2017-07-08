@@ -1,6 +1,13 @@
 # Bundle
 client/compiled
 
+# Configs
+server/config.js
+
+# SASS
+client/assets/.sass-cache
+client/assets/styles.css.map
+
 # Logs
 logs
 *.log

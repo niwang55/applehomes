@@ -1,4 +1,4 @@
-body, h1, p {
+body, h1, h2, h3, p {
   margin: 0; }
 
 html, body, #app, #app > div {
@@ -59,7 +59,7 @@ a {
     display: flex;
     width: 100%;
     height: 100vh;
-    background-image: url("photos/livingroom.jpeg");
+    background-image: url("photos/bg/livingroom.jpg");
     background-size: cover;
     background-position: center;
     flex-direction: column;
@@ -83,17 +83,17 @@ a {
       width: 400px;
       border-radius: 15px; }
     .about-page .second-row .homes-placard {
-      background-image: url("photos/door.jpeg");
+      background-image: url("photos/bg/door.jpg");
       background-size: cover;
       background-position: center;
       color: white; }
     .about-page .second-row .areas-placard {
-      background-image: url("photos/city.jpeg");
+      background-image: url("photos/bg/city.jpg");
       background-size: cover;
       background-position: center;
       color: white; }
     .about-page .second-row .gallery-placard {
-      background-image: url("photos/gallery.jpeg");
+      background-image: url("photos/bg/gallery.jpg");
       background-size: cover;
       background-position: center;
       color: white; }
@@ -102,7 +102,7 @@ a {
     height: 75vh;
     font: 24px 'Arapey';
     background: #dee4ed;
-    background-image: url("photos/pencil.jpeg");
+    background-image: url("photos/bg/pencil.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -133,6 +133,25 @@ a {
  */
 .gallery-page {
   padding-top: 80px; }
+
+/*
+ Home Detail Page
+ */
+.homedetail-page {
+  padding-top: 80px;
+  font-family: 'Arapey'; }
+
+.homedetail-address {
+  text-align: center;
+  font: 30px 'Spectral'; }
+
+.homedetail-info {
+  display: flex;
+  flex-direction: column; }
+
+.homedetail-carousel {
+  margin: 0 40px 0 10px;
+  text-align: center; }
 
 /*
  New Home Page

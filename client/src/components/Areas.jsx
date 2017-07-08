@@ -34,7 +34,7 @@ export default class Areas extends Component {
 
   areasMap(area, index) {
     return (
-      <div key={index}>{area} <span>Number of Properties: {this.state.areas[area]}</span></div>
+      <div key={index}>{area} <span> - Number of Properties: {this.state.areas[area]}</span></div>
     );
   }
 

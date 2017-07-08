@@ -2,7 +2,11 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const session = require('express-session');
 const mongoose = require('mongoose');
+const cloudinary = require('cloudinary');
+
+const configs = require('./config.js');
 
 const schemas = require('./schemas.js');
 let Home = schemas.Home;
@@ -18,15 +22,28 @@ app.use(bodyParser.text({defaultCharset: 'utf-8'}));
 // Database
 mongoose.connect('mongodb://localhost/applehomes');
 
+// Sessions
+app.use(session({
+  secret: 'apple homes',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Cloudinary
+cloudinary.config(configs.cloudinary);
+
 app.use(express.static(path.join(__dirname, '../client')));
 
 // Routes
 
-// Route for testing
 app.get('/api/test', (req, res) => {
-  Home.find({}, (err, homes) => {
-    res.send(homes);
-  });
+  cloudinary.api.resources(function(result) {
+    res.send(result);
+  },
+    {
+      type: 'upload',
+      prefix: '50 Alice Street Unit C, Arcadia, CA 91006/'
+    });
 });
 
 // Route for getting list of homes
@@ -36,12 +53,43 @@ app.get('/api/homes', (req, res) => {
   });
 });
 
+// Route for adding a new home
 app.post('/api/homes', (req, res) => {
   Home.create(req.body, (err, home) => {
     if (err) { console.log('Error in posting to homes', err); }
     console.log('Added home to db');
   });
+
   res.end();
+});
+
+// Route for updating the current home a user is looking at
+app.post('/api/currenthome', (req, res) => {
+  req.session.currentHome = req.body.address;
+
+  res.end();
+});
+
+app.get('/api/homedetail', (req, res) => {
+  Home.findOne({address: req.session.currentHome}, (err, home) => {
+    if (err) {
+      console.log(err);
+    }
+
+    // Have to wrap in array for some reason
+    res.send([home]);
+  });
+});
+
+app.get('/api/homepictures', (req, res) => {
+  cloudinary.api.resources(function(result) {
+    res.send(result);
+  },
+    {
+      type: 'upload',
+      prefix: `${req.session.currentHome}/`,
+      max_results: 50,
+    });
 });
 
 app.get('*', (req, res) => {

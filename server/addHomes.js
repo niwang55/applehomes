@@ -43,24 +43,6 @@ const homeArray = [
     privateBath: false
   },
   {
-    address: '304 West Lime Avenue, Monrovia, CA 91016',
-    summary: 'Our convenient and comfortable home is located near the heart of Old Town Monrovia. There, you can explore and dine on the many various styles of restaurants and food around, as well as spend a lovely evening date watching movies or walking around the park. The master bedroom is fully furnished with a large queen sized bed. Downstairs features a large and spacious living area perfect for work space as well as relaxation. Kitchen is fully equipped with cooking equipment, dishware, and utensils.',
-    description: 'You\'ll be given access the master bedroom of our home. Comes complete with a private bathroom inside as well. Our space is located in a very quiet and family oriented neighborhood. You\'ll be given total peace and quiet to enjoy and relax all that the nearby streets have to offer. Being only a few minutes away by walk, Old Town Monrovia features a wide variety of activities and shops to enjoy. Every Friday, you\'ll be able to enjoy the Monrovia Old Town night market featuring an even more wide variety of street food, desserts, and hand made crafts. The streets become very bustling and lively, perfect for dates and casual hang outs with friends, while still remaining very quiet and peaceful during your stays at our home.',
-    access: 'Full access to 1st floor and respective room on 2nd floor. Wi-Fi included.',
-    neighborhood: 'Only a few minutes walk to the library, park, cinema, supermarket, gymnasium, and bank. As well as a variety of restaurants nearby to cater to your tastes. Everything you need is only a few minutes walk. Experience american culture by partaking in the local festivities every Friday at the night market in Old Town Monrovia. Located in a quiet and friendly neighborhood, unwind in the relaxed atmosphere the city has to offer.',
-    transportation: 'Location is only a few minutes away from the 210 high-speed freeway. The gold line metro is only a few minutes away by car, or about 18 minutes walking. The Los Angeles International Airport is about 45 minutes,  Hollywood Universal Studios is about 30 minutes away, and Disneyland is about 45 minutes away.',
-    notes: 'Please lock the door when you. Please turn off the lights if not in use. No pets. Non smoking Thank you. You may contact me via call, text, e-mail, or through airbnb. Able to speak both Mandarin and English.',
-    area: 'Monrovia',
-    price: 999,
-    people: 3,
-    bedrooms: 1,
-    beds: 1,
-    bathrooms: 1,
-    fullHome: false,
-    privateRoom: true,
-    privateBath: true
-  },
-  {
     address: '306 West Lime Avenue, Monrovia, CA 91016',
     summary: 'Double story house with 2 private rooms available for use. There is plenty of privacy and includes 1.5 bathrooms as well. Comes equipped with high speed internet access, dedicated parking space, hotel standard bedding, as well as cooking utensils, equipment, and laundry. Convenient and comfortable, as well as being on minutes away from Old Town Monrovia. Every Friday, experience the well known Monrovia farmers market and entertainment only minutes away from your doorstep.',
     description: 'Space independence, this house has three rooms, the master bedroom when there is no time to live. So the entire house from the parking garage, kitchen dining room, living room laundry room easy to use. All meal cooking utensils are complete. A 10-minute walk from Monrovia\'s old town\'s central business street. On the street cinema supermarkets and a variety of styles of cuisine are everywhere. 2 rooms close together, bedding clean and comfortable. The rooms are warm and romantic.',
@@ -115,7 +97,7 @@ const homeArray = [
     privateBath: true
   },
   {
-    address: '306 S 1St Ave #102, Arcadia, CA 91006 (Room)',
+    address: '306 S 1St Ave #102, Arcadia, CA 91006',
     summary: 'Spacious, bright and comfortable master bedroom, open the window to see the Arab-Israeli city of San Gabriel and the beauty of the mountain scenery. Furnished with a large king sized bed. It is within walking distance to the Park Golf Course, Library, School, Hospital, as well as the Santa Anita mall, and all kinds of summer camp schools. The gold-line subway station is within walking distance to all kinds of food, Chinese supermarkets and night markets. Nearby, lies the high speed 210 freeway.',
     description: 'The master bedroom is bright and spacious with a private bathroom and a balcony. There is plenty of parking in the basement and the lift is accessible. Both the kitchen and the living room is bright and spacious as well.',
     access: '',
@@ -133,7 +115,7 @@ const homeArray = [
     privateBath: true
   },
   {
-    address: '306 S 1St Ave 102#, Arcadia , CA 91006 (Full House)',
+    address: '306 S 1St Ave #102, Arcadia , CA 91006',
     summary: 'New nice modern luxury condo in prime location of Arcadia, open floor plan granite countertops . Each room comes with a desk and chair. There has plenty spacious, especially downstairs in the living room and kitchen area.close to restaurants, park ,golf course.',
     description: 'The Luxury Mix use property total is 2000 sqft , this great complex is in the highly desirable IL Villagio community of Arcadia, there is a fitness center, elevator and gated 2-assigned parking in the community. All bedrooms upstairs, has family room , living room, master suite and walk-in Closet and wonderfully lays out into a very comfortable open floor plan , features elegant crown molding,center air, wood floors downstairs, counter top in gourmet kitchen and bathroom, the rooms are bright and big spacious. Though both rooms share a bathroom, there is an additional .5 bathroom downstairs as well. Both rooms also have a balcony in case you want to step outside for a bit of fresh air. Located below the building, in the lies a garage with a washer and dryer if you need to wash your clothes or park a car.',
     access: 'Full access to their respective rooms within the location, including: Parking, kitchen (cooking utensils included), living room, laundry, wine storage machines, fresh cabinets, etc, can be used. Wi-Fi high-speed Internet access. Please note: These are private rooms only.',
@@ -151,7 +133,25 @@ const homeArray = [
     privateBath: true
   },
   {
-    address: '304 West Lime Avenue, Monrovia, CA 91016',
+    address: '304 West Lime Avenue Unit 1, Monrovia, CA 91016',
+    summary: 'Our convenient and comfortable home is located near the heart of Old Town Monrovia. There, you can explore and dine on the many various styles of restaurants and food around, as well as spend a lovely evening date watching movies or walking around the park. The master bedroom is fully furnished with a large queen sized bed. Downstairs features a large and spacious living area perfect for work space as well as relaxation. Kitchen is fully equipped with cooking equipment, dishware, and utensils.',
+    description: 'You\'ll be given access the master bedroom of our home. Comes complete with a private bathroom inside as well. Our space is located in a very quiet and family oriented neighborhood. You\'ll be given total peace and quiet to enjoy and relax all that the nearby streets have to offer. Being only a few minutes away by walk, Old Town Monrovia features a wide variety of activities and shops to enjoy. Every Friday, you\'ll be able to enjoy the Monrovia Old Town night market featuring an even more wide variety of street food, desserts, and hand made crafts. The streets become very bustling and lively, perfect for dates and casual hang outs with friends, while still remaining very quiet and peaceful during your stays at our home.',
+    access: 'Full access to 1st floor and respective room on 2nd floor. Wi-Fi included.',
+    neighborhood: 'Only a few minutes walk to the library, park, cinema, supermarket, gymnasium, and bank. As well as a variety of restaurants nearby to cater to your tastes. Everything you need is only a few minutes walk. Experience american culture by partaking in the local festivities every Friday at the night market in Old Town Monrovia. Located in a quiet and friendly neighborhood, unwind in the relaxed atmosphere the city has to offer.',
+    transportation: 'Location is only a few minutes away from the 210 high-speed freeway. The gold line metro is only a few minutes away by car, or about 18 minutes walking. The Los Angeles International Airport is about 45 minutes,  Hollywood Universal Studios is about 30 minutes away, and Disneyland is about 45 minutes away.',
+    notes: 'Please lock the door when you. Please turn off the lights if not in use. No pets. Non smoking Thank you. You may contact me via call, text, e-mail, or through airbnb. Able to speak both Mandarin and English.',
+    area: 'Monrovia',
+    price: 999,
+    people: 3,
+    bedrooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    fullHome: false,
+    privateRoom: true,
+    privateBath: true
+  },
+  {
+    address: '304 West Lime Avenue Unit 2, Monrovia, CA 91016',
     summary: 'Our convenient and comfortable home is located near the heart of Old Town Monrovia. There, you can explore and dine on the many various styles of restaurants and food around, as well as spend a lovely evening date watching movies or walking around the park. The room is fully furnished with a large queen sized bed. Downstairs features a large and spacious living area perfect for work space as well as relaxation. Kitchen is fully equipped with cooking equipment, dishware, and utensils.',
     description: 'Our space is located in a very quiet and family oriented neighborhood. You\'ll be given total peace and quiet to enjoy and relax all that the nearby streets have to offer. Being only a few minutes away by walk, Old Town Monrovia features a wide variety of activities and shops to enjoy. Every Friday, you\'ll be able to enjoy the Monrovia Old Town night market featuring an even more wide variety of street food, desserts, and hand made crafts. The streets become very bustling and lively, perfect for dates and casual hang outs with friends, while still remaining very quiet and peaceful during your stays at our home.',
     access: 'Access to 1st story and their respective room on the 2nd floor. 1.5 Bathroom is shared if there are other quests. Wi-Fi included',

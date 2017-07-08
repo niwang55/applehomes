@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 export default class Homes extends Component {
   constructor(props) {
@@ -22,9 +23,20 @@ export default class Homes extends Component {
     });
   }
 
+  handleHomeClick(home) {
+    axios.post('/api/currenthome', {
+      address: home.address
+    })
+    .catch(error => {
+      console.log('Error in posting to current home', error);
+    });
+
+    browserHistory.push('/homedetail');
+  }
+
   homesMap(home, index) {
     return (
-      <div key={index}>{home.address}</div>
+      <div key={index} onClick={this.handleHomeClick.bind(this, home)}>{home.address}</div>
     );
   }
 
