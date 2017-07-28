@@ -8,9 +8,9 @@ import Navbar from './components/Navbar.jsx';
 import About from './components/About.jsx';
 import Homes from './components/Homes.jsx';
 import Areas from './components/Areas.jsx';
-import Gallery from './components/Gallery.jsx';
 import FindUs from './components/FindUs.jsx';
 import HomeDetail from './components/HomeDetail.jsx';
+import AreaDetail from './components/AreaDetail.jsx';
 import NewHome from './components/NewHome.jsx';
 
 ReactDOM.render((
@@ -20,10 +20,9 @@ ReactDOM.render((
       <Route path="/about" component={ About } />
       <Route path="/homes" component={ Homes } />
       <Route path="/areas" component={ Areas } />
-      <Route path="/gallery" component={ Gallery } />
       <Route path="/findus" component={ FindUs } />
       <Route path="/homedetail" component={ HomeDetail } />
-      <Route path="/newhome" component={ NewHome } />
+      <Route path="/areadetail" component={ AreaDetail } />
     </Route>
   </Router>
 ), document.getElementById('app'));

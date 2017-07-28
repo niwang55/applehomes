@@ -2,10 +2,6 @@ body, h1, h2, h3, p {
   margin: 0;
 }
 
-html, body, #app, #app>div {
-  height: 100%;
-}
-
 a {
   text-decoration: none;
 }
@@ -28,13 +24,14 @@ a {
 .top-banner {
   display: flex;
   font: 22px 'Crimson Text';
-  background: white;
+  background: rgba(255, 255, 255, 0);
   align-items: center;
   padding: 10px;
   width: 100%;
   height: 60px;
   z-index: 100;
   position: fixed;
+  transition: all 0.6s ease-out;
 
   .navbar {
     display: flex;
@@ -62,6 +59,39 @@ a {
 
       &:last-child {
         border: none;
+      }
+    }
+  }
+}
+
+.top-banner.scrolled {
+  background: white;
+  border-bottom: 1px solid gray;
+}
+
+.top-banner.about-nav {
+  color: white;
+
+  .navbar {
+    li {
+      a {
+        &:visited {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.top-banner.about-nav.scrolled {
+  color: black;
+
+  .navbar {
+    li {
+      a {
+        &:visited {
+          color: black;
+        }
       }
     }
   }
@@ -107,6 +137,11 @@ a {
       height: 300px;
       width: 400px;
       border-radius: 15px;
+      transition: all 0.6s ease-out;
+
+      &:hover {
+        box-shadow: 1px 1px 5px darkred;
+      }
     }
 
     .homes-placard {
@@ -123,7 +158,7 @@ a {
       color: white;
     }
 
-    .gallery-placard {
+    .findus-placard {
       background-image: url('photos/bg/gallery.jpg');
       background-size: cover;
       background-position: center;
@@ -151,6 +186,66 @@ a {
  */
 .home-page {
   padding-top: 80px;
+  font-family: 'Spectral';
+  background-image: url('photos/bg/indoors.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  .home-page-title {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .home-page-homecards {
+    margin: 0 10px;
+  }
+
+  h2 {
+    margin-left: 15px;
+  }
+}
+
+.homecard {
+  border-bottom: 1px solid gray;
+  margin: 5px 5px 10px 5px;
+  transition: all 0.6s ease-out;
+
+  .homecard-info {
+    font-size: 20px;
+    div {
+      display: flex;
+      margin-right: 5px;
+
+      i {
+        margin-right: 5px;
+      }
+    }
+
+    span {
+      margin-right: 10px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.home-page-filter {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15px;
+}
+
+.individual-filter {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
 }
 
 /*
@@ -158,20 +253,58 @@ a {
  */
 .areas-page {
   padding-top: 80px;
+  font-family: 'Arapey';
+  text-align: center;
+}
+
+.area-page-area-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.area-card {
+  display: flex;
+  flex-grow: 1;
+  width: 40%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  margin: 5px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font: 60px 'Spectral';
+  text-shadow: 2px 2px black;
+  transition: all 0.6s ease-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px green;
+  }
 }
 
 /*
  Find Us Page
 */
 .findus-page {
-  padding-top: 80px;
-}
+  height: 100vh;
+  font: 20px 'Arapey';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('photos/bg/phone.jpg');
+  background-size: cover;
+  background-position: center;
 
-/*
- Gallery Page
- */
-.gallery-page {
-  padding-top: 80px;
+  p {
+    a {
+      &:visited {
+        color: green;
+      }
+    }
+  }
 }
 
 /*
@@ -180,11 +313,15 @@ a {
 .homedetail-page {
   padding-top: 80px;
   font-family: 'Arapey';
+
+  h2 {
+    font: 34px 'Crimson Text';
+  }
 }
 
 .homedetail-address {
   text-align: center;
-  font: 30px 'Spectral';
+  font: 26px 'Spectral';
 }
 
 .homedetail-info {
@@ -192,17 +329,95 @@ a {
   flex-direction: column;
 }
 
-.homedetail-carousel {
-  margin: 0 40px 0 10px;
-  text-align: center;
+.homedetail-details {
+  display: flex;
 
-  img {
+  .homedetail-details-left {
+    padding: 5px 15px;
+  }
+
+  .homedetail-details-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
-.slick-arrow {
-
+.homedetail-gallery {
+  text-align: center;
+  padding: 10px;
 }
+
+.book-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 20px 'Spectral';
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background: #ff5a5f;
+  color: white;
+
+  &:hover {
+    background: #ff7e82;
+  }
+}
+
+/*
+ Area Details Page
+ */
+.areadetail-page {
+  padding-top: 80px;
+  font-family: 'Arapey';
+  display: flex;
+}
+
+.areadetail-page-title {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    font-size: 50px;
+  }
+
+  button {
+    margin-left: 15px;
+    width: 75px;
+    height: 20px;
+    background: lightgreen;
+    border: none;
+    border-radius: 15px;
+
+    &:hover {
+      color: white;
+      background: darkgreen;
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.areadetail-first-col {
+  width: 40%;
+  position: fixed;
+  height: 100%;
+  background-size: cover;
+}
+
+.areadetail-second-col {
+  margin: 0 15px 0px 10px;
+  margin-left: 41%;
+}
+
+.areadetailpage-homecards {
+  margin-top: 20px;
+}
+
 /*
  New Home Page
  */

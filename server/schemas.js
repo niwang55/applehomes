@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const Home = mongoose.model('Home', {
   address: String,
+  link: String,
   summary: String,
   description: String,
   access: String,
@@ -20,6 +21,13 @@ const Home = mongoose.model('Home', {
   privateBath: Boolean
 });
 
+const Area = mongoose.model('Area', {
+  city: String,
+  description: String,
+  picture: String
+});
+
 module.exports = {
-  Home: Home
+  Home: Home,
+  Area: Area
 };

@@ -1,51 +1,51 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 export default class Areas extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      homes: null,
       areas: null
     };
   }
 
   componentWillMount() {
-    axios.get('/api/homes')
+    axios.get('/api/areas')
     .then(response => {
       this.setState({
-        homes: [...response.data]
+        areas: [...response.data]
       });
-
-      let cityObject = {};
-      this.state.homes.forEach(home => {
-        let city = home.area;
-
-        cityObject[city] ? cityObject[city]++ : cityObject[city] = 1;
-      });
-
-      this.setState({
-        areas: cityObject
-      });
-
     });
   }
 
-  areasMap(area, index) {
-    return (
-      <div key={index}>{area} <span> - Number of Properties: {this.state.areas[area]}</span></div>
-    );
+  formatUrl(picture) {
+    return '../../assets/photos/cities/' + picture;
+  }
+
+  handleAreaClick(area) {
+    axios.post('/api/currentarea', {
+      area: area
+    })
+    .catch(error => {
+      console.log('Error in posting to current area, ', error);
+    });
+
+    browserHistory.push('/areadetail');
   }
 
   render() {
     return (
       <div className="areas-page">
         <h1>Areas</h1>
-        <h3>Here are a list of the areas where we have listings</h3>
-        { this.state.areas && 
-          Object.keys(this.state.areas).map(this.areasMap.bind(this))
-        }
+        <div className="area-page-area-cards">
+          { this.state.areas && 
+            this.state.areas.map((area, index) => (
+              <div style={{'backgroundImage': 'url(' + this.formatUrl.call(this, area.picture) + ')'}} className="area-card" key={index} onClick={this.handleAreaClick.bind(this, area.city)}>{area.city}</div>
+            ))
+          }
+        </div>
       </div>
     );
   }

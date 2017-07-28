@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import $ from 'jquery';
 
 export default class About extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    $('.top-banner').addClass('about-nav');
+  }
+
+  componentWillUnmount() {
+    $('.top-banner').removeClass('about-nav');
   }
 
   render() {
@@ -18,7 +27,7 @@ export default class About extends Component {
         <div className="second-row">
           <Link to="/homes"><div className="placard homes-placard">Homes</div></Link>
           <Link to="/areas"><div className="placard areas-placard">Areas</div></Link>
-          <Link to="/gallery"><div className="placard gallery-placard">Gallery</div></Link>
+          <Link to="/findus"><div className="placard findus-placard">Find Us</div></Link>
         </div>
 
         <div className="third-row">

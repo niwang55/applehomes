@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
 import axios from 'axios';
+import config from '../../../server/config.js';
 
 export default class HomeDetail extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ export default class HomeDetail extends Component {
     this.state = {
       home: null,
       picturesArray: null,
-      currentImage: 0
+      googleMapUrl: null,
+      currentImage: 0,
     };
   }
 
@@ -19,7 +21,11 @@ export default class HomeDetail extends Component {
     axios.get('/api/homedetail')
     .then(response => {
       this.setState({
-        home: response.data[0]
+        home: response.data[0],
+      });
+
+      this.setState({
+        googleMapUrl: `https://www.google.com/maps/embed/v1/place?key=${config.GOOGLE_API}&q=${this.state.home.address}`
       });
     })
     .catch(error => {
@@ -31,8 +37,13 @@ export default class HomeDetail extends Component {
     .then(response => {
       let picturesArray = [];
       response.data.resources.forEach(resource => {
+
+        // Transform the image to 60% quality
+        const index = resource.url.indexOf('/upload') + 7;
+        const pictureUrl = [resource.url.slice(0, index), '/q_60', resource.url.slice(index)].join('');
+
         const pictureObject = {
-          src: resource.url,
+          src: pictureUrl,
           width: resource.width,
           height: resource.height
         };
@@ -42,7 +53,6 @@ export default class HomeDetail extends Component {
       this.setState({
         picturesArray: [...picturesArray]
       });
-      console.log(this.state);
     })
     .catch(error => {
       console.log('Error in getting home pictures, ', error);
@@ -54,14 +64,14 @@ export default class HomeDetail extends Component {
     this.setState({
       currentImage: index,
       lightboxIsOpen: true
-    })
+    });
   }
 
   closeLightbox() {
     this.setState({
       currentImage: 0,
       lightboxIsOpen: false
-    })
+    });
   }
 
   gotoPrevious() {
@@ -92,40 +102,53 @@ export default class HomeDetail extends Component {
           { this.state.home &&
             <div className="homedetail-details">
 
-              <div>
-                <h2>Accomodations</h2>
-                <p>Price: ${this.state.home.price}/night</p>
-                <p>Accomdates {this.state.home.people} people</p>
-                <p>Bedrooms: {this.state.home.beds}</p>
-                <p>Bathrooms: {this.state.home.bathrooms}</p>
-                <p>Access to full home: {this.state.home.fullHome ? 'Yes' : 'No'}</p>
-                <p>Bedroom: {this.state.home.privateRoom ? 'Private' : 'Shared'}</p>
-                <p>Bathroom: {this.state.home.privateBath ? 'Private' : 'Shared'}</p>
+              <div className="homedetail-details-left">
+                <div>
+                  <h2>Accomodations</h2>
+                  <p>Price: ${this.state.home.price}/night</p>
+                  <p>Accomdates {this.state.home.people} people</p>
+                  <p>Bedrooms: {this.state.home.bedrooms}</p>
+                  <p>Beds: {this.state.home.beds}</p>
+                  <p>Bathrooms: {this.state.home.bathrooms}</p>
+                  <p>Access to full home: {this.state.home.fullHome ? 'Yes' : 'No'}</p>
+                  <p>Bedroom: {this.state.home.privateRoom ? 'Private' : 'Shared'}</p>
+                  <p>Bathroom: {this.state.home.privateBath ? 'Private' : 'Shared'}</p>
+                </div>
+
+                <h3>Summary</h3>
+                <p>{this.state.home.summary}</p>
+
+                <h3>Description</h3>
+                <p>{this.state.home.description}</p>
+
+                <h3>Guest Access</h3>
+                <p>{this.state.home.access}</p>
+
+                <h3>The Neighborhood</h3>
+                <p>{this.state.home.neighborhood}</p>
+
+                <h3>Getting Around</h3>
+                <p>{this.state.home.transportation}</p>
+
+                <h3>Additional Notes</h3>
+                <p>{this.state.home.notes}</p>
               </div>
 
-              <h3>Summary</h3>
-              <p>{this.state.home.summary}</p>
+              <div className="homedetail-details-right">
+                <iframe
+                  width="600" height="450" frameBorder="0" style={{border: 0}}
+                  src={this.state.googleMapUrl} allowFullScreen>
+                </iframe>
 
-              <h3>Description</h3>
-              <p>{this.state.home.description}</p>
+                <a className="book-button" href={this.state.home.link}>Check Availability and Book</a>
 
-              <h3>Guest Access</h3>
-              <p>{this.state.home.access}</p>
-
-              <h3>The Neighborhood</h3>
-              <p>{this.state.home.neighborhood}</p>
-
-              <h3>Getting Around</h3>
-              <p>{this.state.home.transportation}</p>
-
-              <h3>Additional Notes</h3>
-              <p>{this.state.home.notes}</p>
+              </div>
 
             </div>
           }
 
           { this.state.picturesArray &&
-            <div className="homedetail-carousel">
+            <div className="homedetail-gallery">
               <h2>Gallery</h2>
               <Gallery photos={this.state.picturesArray} margin={5} onClickPhoto={this.openLightbox.bind(this)} />
               <Lightbox

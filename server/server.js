@@ -10,6 +10,7 @@ const configs = require('./config.js');
 
 const schemas = require('./schemas.js');
 let Home = schemas.Home;
+let Area = schemas.Area;
 
 const app = express();
 
@@ -63,6 +64,15 @@ app.post('/api/homes', (req, res) => {
   res.end();
 });
 
+// Route for getting list of areas
+app.get('/api/areas', (req, res) => {
+  let areaArray = [];
+
+  Area.find({}, (err, results) => {
+    res.send(results);
+  });
+});
+
 // Route for updating the current home a user is looking at
 app.post('/api/currenthome', (req, res) => {
   req.session.currentHome = req.body.address;
@@ -70,6 +80,14 @@ app.post('/api/currenthome', (req, res) => {
   res.end();
 });
 
+// Route for updating the current area a user is looking at
+app.post('/api/currentarea', (req, res) => {
+  req.session.currentArea = req.body.area;
+
+  res.end();
+});
+
+// Route for getting details of a home based on the one that the user clicked
 app.get('/api/homedetail', (req, res) => {
   Home.findOne({address: req.session.currentHome}, (err, home) => {
     if (err) {
@@ -81,6 +99,29 @@ app.get('/api/homedetail', (req, res) => {
   });
 });
 
+// ROute for getting details of an area based on the one that the user clicked
+app.get('/api/areadetails', (req, res) => {
+  Area.find({city: req.session.currentArea}, (err, area) => {
+    if (err) {
+      console.log(err);
+    }
+
+    res.send([area]);
+  });
+});
+
+// Route for getting homes related to an area based on the one that the user clicked
+app.get('/api/areahomes', (req, res) => {
+  Home.find({area: req.session.currentArea}, (err, homes) => {
+    if (err) {
+      console.log(err);
+    }
+
+    res.send(homes);
+  });
+});
+
+// Route for getting pictures related to a certain home
 app.get('/api/homepictures', (req, res) => {
   cloudinary.api.resources(function(result) {
     res.send(result);

@@ -1,9 +1,6 @@
 body, h1, h2, h3, p {
   margin: 0; }
 
-html, body, #app, #app > div {
-  height: 100%; }
-
 a {
   text-decoration: none; }
 
@@ -22,13 +19,14 @@ a {
 .top-banner {
   display: flex;
   font: 22px 'Crimson Text';
-  background: white;
+  background: rgba(255, 255, 255, 0);
   align-items: center;
   padding: 10px;
   width: 100%;
   height: 60px;
   z-index: 100;
-  position: fixed; }
+  position: fixed;
+  transition: all 0.6s ease-out; }
   .top-banner .navbar {
     display: flex;
     margin-left: auto;
@@ -47,6 +45,20 @@ a {
           color: lightblue; }
       .top-banner .navbar li:last-child {
         border: none; }
+
+.top-banner.scrolled {
+  background: white;
+  border-bottom: 1px solid gray; }
+
+.top-banner.about-nav {
+  color: white; }
+  .top-banner.about-nav .navbar li a:visited {
+    color: white; }
+
+.top-banner.about-nav.scrolled {
+  color: black; }
+  .top-banner.about-nav.scrolled .navbar li a:visited {
+    color: black; }
 
 /*
  About Page
@@ -81,7 +93,10 @@ a {
       margin: 15px;
       height: 300px;
       width: 400px;
-      border-radius: 15px; }
+      border-radius: 15px;
+      transition: all 0.6s ease-out; }
+      .about-page .second-row .placard:hover {
+        box-shadow: 1px 1px 5px darkred; }
     .about-page .second-row .homes-placard {
       background-image: url("photos/bg/door.jpg");
       background-size: cover;
@@ -92,7 +107,7 @@ a {
       background-size: cover;
       background-position: center;
       color: white; }
-    .about-page .second-row .gallery-placard {
+    .about-page .second-row .findus-placard {
       background-image: url("photos/bg/gallery.jpg");
       background-size: cover;
       background-position: center;
@@ -114,25 +129,94 @@ a {
  Home Page
  */
 .home-page {
-  padding-top: 80px; }
+  padding-top: 80px;
+  font-family: 'Spectral';
+  background-image: url("photos/bg/indoors.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; }
+  .home-page .home-page-title {
+    font-size: 60px;
+    text-align: center; }
+  .home-page .home-page-homecards {
+    margin: 0 10px; }
+  .home-page h2 {
+    margin-left: 15px; }
+
+.homecard {
+  border-bottom: 1px solid gray;
+  margin: 5px 5px 10px 5px;
+  transition: all 0.6s ease-out; }
+  .homecard .homecard-info {
+    font-size: 20px; }
+    .homecard .homecard-info div {
+      display: flex;
+      margin-right: 5px; }
+      .homecard .homecard-info div i {
+        margin-right: 5px; }
+    .homecard .homecard-info span {
+      margin-right: 10px; }
+  .homecard:hover {
+    cursor: pointer; }
+  .homecard:last-child {
+    border: none; }
+
+.home-page-filter {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15px; }
+
+.individual-filter {
+  display: flex;
+  flex-grow: 1;
+  align-items: center; }
 
 /*
  Areas Page
  */
 .areas-page {
-  padding-top: 80px; }
+  padding-top: 80px;
+  font-family: 'Arapey';
+  text-align: center; }
+
+.area-page-area-cards {
+  display: flex;
+  flex-wrap: wrap; }
+
+.area-card {
+  display: flex;
+  flex-grow: 1;
+  width: 40%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  margin: 5px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font: 60px 'Spectral';
+  text-shadow: 2px 2px black;
+  transition: all 0.6s ease-out; }
+  .area-card:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px green; }
 
 /*
  Find Us Page
 */
 .findus-page {
-  padding-top: 80px; }
-
-/*
- Gallery Page
- */
-.gallery-page {
-  padding-top: 80px; }
+  height: 100vh;
+  font: 20px 'Arapey';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("photos/bg/phone.jpg");
+  background-size: cover;
+  background-position: center; }
+  .findus-page p a:visited {
+    color: green; }
 
 /*
  Home Detail Page
@@ -140,18 +224,83 @@ a {
 .homedetail-page {
   padding-top: 80px;
   font-family: 'Arapey'; }
+  .homedetail-page h2 {
+    font: 34px 'Crimson Text'; }
 
 .homedetail-address {
   text-align: center;
-  font: 30px 'Spectral'; }
+  font: 26px 'Spectral'; }
 
 .homedetail-info {
   display: flex;
   flex-direction: column; }
 
-.homedetail-carousel {
-  margin: 0 40px 0 10px;
-  text-align: center; }
+.homedetail-details {
+  display: flex; }
+  .homedetail-details .homedetail-details-left {
+    padding: 5px 15px; }
+  .homedetail-details .homedetail-details-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+
+.homedetail-gallery {
+  text-align: center;
+  padding: 10px; }
+
+.book-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 20px 'Spectral';
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background: #ff5a5f;
+  color: white; }
+  .book-button:hover {
+    background: #ff7e82; }
+
+/*
+ Area Details Page
+ */
+.areadetail-page {
+  padding-top: 80px;
+  font-family: 'Arapey';
+  display: flex; }
+
+.areadetail-page-title {
+  display: flex;
+  align-items: center; }
+  .areadetail-page-title h1 {
+    font-size: 50px; }
+  .areadetail-page-title button {
+    margin-left: 15px;
+    width: 75px;
+    height: 20px;
+    background: lightgreen;
+    border: none;
+    border-radius: 15px; }
+    .areadetail-page-title button:hover {
+      color: white;
+      background: darkgreen;
+      cursor: pointer; }
+    .areadetail-page-title button:focus {
+      outline: none; }
+
+.areadetail-first-col {
+  width: 40%;
+  position: fixed;
+  height: 100%;
+  background-size: cover; }
+
+.areadetail-second-col {
+  margin: 0 15px 0px 10px;
+  margin-left: 41%; }
+
+.areadetailpage-homecards {
+  margin-top: 20px; }
 
 /*
  New Home Page
