@@ -50,6 +50,7 @@ export default class HomeDetail extends Component {
 
         picturesArray.push(pictureObject);
       });
+
       this.setState({
         picturesArray: [...picturesArray]
       });
@@ -150,6 +151,9 @@ export default class HomeDetail extends Component {
           { this.state.picturesArray &&
             <div className="homedetail-gallery">
               <h2>Gallery</h2>
+              { this.state.picturesArray.length === 0 && 
+                <h3>No pictures</h3>
+              }
               <Gallery photos={this.state.picturesArray} margin={5} onClickPhoto={this.openLightbox.bind(this)} />
               <Lightbox
                 theme={{container: { background: 'rgba(0, 0, 0, 0.85)' }}}
