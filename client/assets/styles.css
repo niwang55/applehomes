@@ -38,8 +38,7 @@ a {
       padding-right: 5px;
       border-right: 1px solid; }
       .top-banner .navbar li a {
-        text-decoration: none;
-        color: white; }
+        text-decoration: none; }
         .top-banner .navbar li a:visited {
           color: black; }
         .top-banner .navbar li a:hover {
