@@ -32,8 +32,8 @@ export default class About extends Component {
 
         <div className="third-row">
           <h1>About Us</h1>
-          <p>Here's some paragraph about apple homes, info and such</p>
-          <p>Vincent or Leon can come up with this junk</p>
+          <p>Welcome to Apple Homes, serving the San Gabriel Valley area</p>
+          <p>to help you find your dream vacation home</p>
         </div>
 
       </div>

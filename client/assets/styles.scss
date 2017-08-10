@@ -18,7 +18,7 @@ a {
   &:hover {
     background: #749de0;
     cursor: pointer;
-    color: gray;
+    color: lightgray;
   }
 }
 
@@ -420,6 +420,72 @@ a {
 }
 
 /*
+ Login Page
+ */
+.login-page {
+  height: 100vh;
+  font-family: 'Arapey';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  border-radius: 3px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      height: 40px;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      height: 40px;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      background: #7ad3b0;
+
+      &:hover {
+        cursor: pointer;
+        background: lightgreen;
+        color: white;
+      }
+    }
+  }
+}
+
+/*
+ User Options Page
+ */
+.useroptions-page {
+  height: 100vh;
+  font-family: 'Arapey';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    margin: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+}
+
+.useroptions-page-buttons {
+  display: flex;
+}
+
+/*
  New Home Page
  */
 .newhome-page {
@@ -449,5 +515,41 @@ a {
   label {
     margin: 0;
     padding: 0;
+  }
+}
+
+.file-uploader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease 0s;
+  background-image: url('pic.gif');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 150px;
+  border: 2.5px dashed;
+  margin-bottom: 15px;
+
+  &:hover {
+    background-color: rgba(24, 135, 79, 0.25);
+    border-color: rgb(24, 135, 79);
+    cursor: pointer;
+  }
+}
+
+/*
+ Edit Homes Page
+ */
+.edithomes-page {
+  padding-top: 80px;
+  font: 16px 'Arapey';
+}
+
+.edithomes-homes {
+  div {
+    margin-bottom: 5px;
   }
 }

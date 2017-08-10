@@ -17,6 +17,7 @@ export default class Navbar extends Component {
             <li><Link to='/homes'>Homes</Link></li>
             <li><Link to='/areas'>Areas</Link></li>
             <li><Link to='/findus'>Find Us</Link></li>
+            <li><Link to='/login'>Agent Login</Link></li>
           </nav>
         </div>
 
