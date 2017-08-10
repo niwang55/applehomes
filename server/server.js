@@ -47,6 +47,36 @@ app.get('/api/test', (req, res) => {
     });
 });
 
+// Route for login
+app.post('/api/login', (req, res) => {
+  if (req.body.password === configs.SITE_PASSWORD) {
+    req.session.authenticated = true;
+
+    res.send({
+      authenticated: true
+    });
+  } else {
+    req.session.authenticated = false;
+    
+    res.send({
+      authenticated: false
+    });
+  }
+});
+
+// Route for checking authentication
+app.get('/api/authenticate', (req, res) => {
+  if (req.session.authenticated) {
+    res.send({
+      authenticated: true
+    });
+  } else {
+    res.send({
+      authenticated: false
+    });
+  }
+});
+
 // Route for getting list of homes
 app.get('/api/homes', (req, res) => {
   Home.find({}, (err, homes) => {
@@ -62,6 +92,11 @@ app.post('/api/homes', (req, res) => {
   });
 
   res.end();
+});
+
+// Route for uploading pictures to new home
+app.post('/api/homepictures', (req, res) => {
+  cloudinary.v2.uploader.upload(req.body.file64, {folder: req.body.address});
 });
 
 // Route for getting list of areas
@@ -131,6 +166,15 @@ app.get('/api/homepictures', (req, res) => {
       prefix: `${req.session.currentHome}/`,
       max_results: 50,
     });
+});
+
+// Route for deleting a home from the database
+app.post('/api/deletehome', (req, res) => {
+  Home.find({address: req.body.address}).remove().exec();
+
+  cloudinary.api.delete_resources_by_prefix(`${req.body.address}/`, function(result) {});
+
+  res.end();
 });
 
 app.get('*', (req, res) => {
