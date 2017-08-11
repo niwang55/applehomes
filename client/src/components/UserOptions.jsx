@@ -13,7 +13,7 @@ export default class UserOptions extends Component {
       console.log('Error in logging out', error);
     });
 
-    browserHistory.push('/login');
+    browserHistory.push('/');
   }
 
   render() {
