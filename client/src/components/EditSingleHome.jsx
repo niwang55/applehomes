@@ -172,7 +172,7 @@ export default class EditSingleHome extends Component {
         { this.state.address &&
           <div>
             <h1>Editing: {this.state.address}</h1>
-            <h3>There is no way to change the address, if you want to change the address, delete a listing and relist it.</h3>
+            <h3>There is no way to change the address or pictures, if you want to change the address/pictures, delete a listing and relist it.</h3>
             <div className="newhome-form">
 
               AirBnB Link: <input value={this.state.link} onChange={this.handleLinkChange.bind(this)} type="text" />
