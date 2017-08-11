@@ -163,7 +163,7 @@ export default class EditSingleHome extends Component {
     });
 
     alert('Home updated');
-    browserHistory.push('/useroptions');
+    browserHistory.push('/edithomes');
   }
 
   render() {
