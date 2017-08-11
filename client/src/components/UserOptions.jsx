@@ -13,7 +13,7 @@ export default class UserOptions extends Component {
       console.log('Error in logging out', error);
     });
 
-    browserHistory.push('/');
+    browserHistory.push('/login');
   }
 
   render() {
@@ -21,8 +21,8 @@ export default class UserOptions extends Component {
       <div className="useroptions-page">
         <h1>Choose an option below:</h1>
         <div className="useroptions-page-buttons">
-          <button className="general-button"><Link to="/newhome">Upload a new listing</Link></button>
-          <button className="general-button"><Link to="/edithomes">Edit/Delete a listing</Link></button>
+          <Link to="/newhome"><button className="general-button">Upload a new listing</button></Link>
+          <Link to="/edithomes"><button className="general-button">Edit/Delete a listing</button></Link>
           <button className="general-button" onClick={this.handleLogoutClick.bind(this)}>Logout</button>
         </div>
       </div>
