@@ -1,4 +1,5 @@
 # Bundle
+client/compiled/*
 client/compiled
 
 # Configs
