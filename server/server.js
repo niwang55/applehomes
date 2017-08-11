@@ -65,6 +65,11 @@ app.post('/api/login', (req, res) => {
   }
 });
 
+// Route for logging out
+app.get('/api/logout', (req, res) => {
+  req.session.destroy();
+});
+
 // Route for checking authentication
 app.get('/api/authenticate', (req, res) => {
   if (req.session.authenticated) {
