@@ -12,6 +12,15 @@ export default class Login extends Component {
     };
   }
 
+  componentWillMount() {
+    axios.get('/api/authenticate')
+    .then(response => {
+      if (response.data.authenticated) {
+        browserHistory.push('/useroptions');
+      }
+    });
+  }
+
   handlePasswordChange(e) {
     this.setState({
       password: e.target.value

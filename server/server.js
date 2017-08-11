@@ -37,6 +37,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // Routes
 
+// Route for testing purposes
 app.get('/api/test', (req, res) => {
   cloudinary.api.resources(function(result) {
     res.send(result);
@@ -97,6 +98,8 @@ app.post('/api/homes', (req, res) => {
 // Route for uploading pictures to new home
 app.post('/api/homepictures', (req, res) => {
   cloudinary.v2.uploader.upload(req.body.file64, {folder: req.body.address});
+
+  res.end();
 });
 
 // Route for getting list of areas
@@ -166,6 +169,32 @@ app.get('/api/homepictures', (req, res) => {
       prefix: `${req.session.currentHome}/`,
       max_results: 50,
     });
+});
+
+// Route for updating the current editing home
+app.post('/api/editinghome', (req, res) => {
+  req.session.currentEditingHome = req.body.address;
+
+  res.end();
+});
+
+// Route for getting the details about the home user is editing
+app.get('/api/editinghome', (req, res) => {
+  Home.find({address: req.session.currentEditingHome}, (err, result) => {
+    res.send(result[0]);
+  });
+});
+
+// Route for updating details of a home, just delete and replace instead of update
+app.post('/api/updatehome', (req, res) => {
+  Home.find({address: req.body.address}).remove().exec();
+
+  Home.create(req.body, (err, home) => {
+    if (err) { console.log('Error in updating home', err); }
+    console.log('Added updated home to db');
+  });
+
+  res.end();
 });
 
 // Route for deleting a home from the database

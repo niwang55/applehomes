@@ -407,4 +407,18 @@ a {
 .edithomes-homes div {
   margin-bottom: 5px; }
 
+/*
+ Edit Single Home Page
+ */
+.editsinglehome-page {
+  padding-top: 80px;
+  font: 16px 'Arapey'; }
+
+/*
+ Area Upload Page
+ */
+.newarea-page {
+  padding-top: 80px;
+  font: 16px 'Arapey'; }
+
 /*# sourceMappingURL=styles.css.map */

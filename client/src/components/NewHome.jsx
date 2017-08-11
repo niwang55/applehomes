@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, browserHistory } from 'react-router';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 
@@ -139,11 +140,11 @@ export default class NewHome extends Component {
   handleSubmitClick(e) {
     e.preventDefault();
 
+    alert('New Home Uploaded');
+    browserHistory.push('/useroptions');
+
     // Upload home to server/mongo
     axios.post('/api/homes', this.state)
-    .then(response => {
-      console.log(response);
-    })
     .catch(error => {
       console.log('Error in posting homes', error);
     });
@@ -170,7 +171,7 @@ export default class NewHome extends Component {
     return (
       <div className="newhome-page">
 
-      <h3>This form is for authorized contributors to Apple Homes to add new listings</h3>
+      <h3>This form is for authorized contributors to Apple Homes to add new listings <button><Link to="/useroptions">Back to options</Link></button></h3>
 
         <div className="newhome-form">
 

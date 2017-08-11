@@ -12,8 +12,7 @@ export default class UserOptions extends Component {
         <h1>Choose an option below:</h1>
         <div className="useroptions-page-buttons">
           <button className="general-button"><Link to="/newhome">Upload a new listing</Link></button>
-          <button className="general-button"><Link to="/edithomes">Delete a listing</Link></button>
-          <button className="general-button">Upload an area (Not working yet)</button>
+          <button className="general-button"><Link to="/edithomes">Edit/Delete a listing</Link></button>
         </div>
       </div>
     );

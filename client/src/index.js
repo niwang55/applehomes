@@ -15,6 +15,8 @@ import Login from './components/Login.jsx';
 import UserOptions from './components/UserOptions.jsx';
 import NewHome from './components/NewHome.jsx';
 import EditHomes from './components/EditHomes.jsx';
+import EditSingleHome from './components/EditSingleHome.jsx';
+import NewArea from './components/NewArea.jsx';
 
 function requireAuth(nextState, replace, callback) {
   axios.get('/api/authenticate')
@@ -43,6 +45,7 @@ ReactDOM.render((
       <Route path="/useroptions" component={ UserOptions } onEnter={ requireAuth } />
       <Route path="/newhome" component={ NewHome } onEnter={ requireAuth } />
       <Route path="/edithomes" component={ EditHomes } onEnter={ requireAuth } />
+      <Route path="/edithome" component={ EditSingleHome } onEnter={ requireAuth } />
     </Route>
   </Router>
 ), document.getElementById('app'));
