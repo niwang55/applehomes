@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const compression = require('compression');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const cloudinary = require('cloudinary');
@@ -19,6 +20,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(bodyParser.text({defaultCharset: 'utf-8'}));
+app.use(compression());
 
 // Database
 mongoose.connect('mongodb://localhost/applehomes');
