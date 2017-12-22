@@ -34,6 +34,10 @@ a {
   position: fixed;
   transition: all 0.6s ease-out;
 
+  h1 {
+    color: black;
+  }
+
   .navbar {
     display: flex;
     margin-left: auto;
@@ -105,12 +109,12 @@ a {
   height: 100%;
 
   .first-row {
-    color: white;
+    color: #fff;
     font: 40px 'Spectral';
     display: flex;
     width: 100%;
     height: 100vh;
-    background-image: url('photos/bg/livingroom.jpg');
+    background-image: url('photos/bg/plant.jpg');
     background-size: cover;
     background-position: center;
     flex-direction: column;
@@ -119,6 +123,15 @@ a {
 
     p {
       font-size: 20px;
+    }
+
+    .first-row-text {
+      background: rgba(198, 202, 209, 0.5);
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
     }
   }
 
@@ -186,9 +199,9 @@ a {
  Home Page
  */
 .home-page {
-  padding-top: 80px;
-  font-family: 'Spectral';
-  background-image: url('photos/bg/indoors.jpeg');
+  padding: 80px 0 20px 0;
+  font-family: 'Poppins';
+  background-image: url('photos/bg/piano.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -199,7 +212,10 @@ a {
   }
 
   .home-page-homecards {
-    margin: 0 10px;
+    width: 700px;
+    border-radius: 10px;
+    margin-left: 50px;
+    background: rgba(255, 255, 255, 0.5);
   }
 
   h2 {
@@ -212,8 +228,12 @@ a {
   margin: 5px 5px 10px 5px;
   transition: all 0.6s ease-out;
 
+  h1 {
+    font-size: 24px;
+  }
+
   .homecard-info {
-    font-size: 20px;
+    font-size: 18px;
     div {
       display: flex;
       margin-right: 5px;

@@ -20,8 +20,10 @@ export default class About extends Component {
       <div className="about-page">
 
         <div className="first-row">
-          <h1>Welcome to Apple Homes</h1>
-          <p>scroll down for more <i className="fa fa-angle-down" aria-hidden="true"></i></p>
+          <div className="first-row-text">
+            <h1>Welcome to Apple Homes</h1>
+            <p>scroll down for more <i className="fa fa-angle-down" aria-hidden="true"></i></p>
+          </div>
         </div>
 
         <div className="second-row">
