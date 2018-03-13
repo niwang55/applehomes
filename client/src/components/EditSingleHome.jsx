@@ -27,7 +27,7 @@ export default class EditSingleHome extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('/api/editinghome')
     .then(response => {
       this.setState({

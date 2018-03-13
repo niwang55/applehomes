@@ -12,7 +12,7 @@ export default class Login extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('/api/authenticate')
     .then(response => {
       if (response.data.authenticated) {

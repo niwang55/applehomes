@@ -11,7 +11,7 @@ export default class Areas extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('/api/areas')
     .then(response => {
       this.setState({

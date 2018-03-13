@@ -12,7 +12,7 @@ export default class AreaDetail extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('/api/areadetails')
     .then(response => {
       this.setState({

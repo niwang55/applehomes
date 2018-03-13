@@ -16,7 +16,7 @@ export default class HomeDetail extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // Get the details about the currently selected home
     axios.get('/api/homedetail')
     .then(response => {
