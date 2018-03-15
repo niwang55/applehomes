@@ -37,6 +37,15 @@ cloudinary.config(configs.cloudinary);
 
 app.use(express.static(path.join(__dirname, '../client')));
 
+// Middleware for route authentication
+function isAuthenticated(req, res, next) {
+  if (req.session.authenticated = true) {
+    return next();
+  }
+
+  res.redirect('/login');
+}
+
 // Routes
 
 // Route for testing purposes
@@ -94,7 +103,7 @@ app.get('/api/homes', (req, res) => {
 });
 
 // Route for adding a new home
-app.post('/api/homes', (req, res) => {
+app.post('/api/homes', isAuthenticated, (req, res) => {
   Home.create(req.body, (err, home) => {
     if (err) { console.log('Error in posting to homes', err); }
     console.log('Added home to db');
@@ -104,7 +113,7 @@ app.post('/api/homes', (req, res) => {
 });
 
 // Route for uploading pictures to new home
-app.post('/api/homepictures', (req, res) => {
+app.post('/api/homepictures', isAuthenticated (req, res) => {
   cloudinary.v2.uploader.upload(req.body.file64, {folder: req.body.address});
 
   res.end();
@@ -180,21 +189,21 @@ app.get('/api/homepictures', (req, res) => {
 });
 
 // Route for updating the current editing home
-app.post('/api/editinghome', (req, res) => {
+app.post('/api/editinghome', isAuthenticated, (req, res) => {
   req.session.currentEditingHome = req.body.address;
 
   res.end();
 });
 
 // Route for getting the details about the home user is editing
-app.get('/api/editinghome', (req, res) => {
+app.get('/api/editinghome', isAuthenticated, (req, res) => {
   Home.find({address: req.session.currentEditingHome}, (err, result) => {
     res.send(result[0]);
   });
 });
 
 // Route for updating details of a home, just delete and replace instead of update
-app.post('/api/updatehome', (req, res) => {
+app.post('/api/updatehome', isAuthenticated, (req, res) => {
   Home.find({address: req.body.address}).remove().exec();
 
   Home.create(req.body, (err, home) => {
@@ -206,7 +215,7 @@ app.post('/api/updatehome', (req, res) => {
 });
 
 // Route for deleting a home from the database
-app.post('/api/deletehome', (req, res) => {
+app.post('/api/deletehome', isAuthenticated, (req, res) => {
   Home.find({address: req.body.address}).remove().exec();
 
   cloudinary.api.delete_resources_by_prefix(`${req.body.address}/`, function(result) {});
