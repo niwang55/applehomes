@@ -43,7 +43,7 @@ function isAuthenticated(req, res, next) {
     return next();
   }
 
-  res.redirect('/login');
+  res.redirect('/');
 }
 
 // Routes
