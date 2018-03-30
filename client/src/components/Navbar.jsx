@@ -11,7 +11,7 @@ export default class Navbar extends Component {
       <div>
 
         <div className="top-banner">
-          <h1>Apple Homes</h1>
+          <h1>Apple Homestay</h1>
           <nav className="navbar">
             <li><Link to='/about'>About</Link></li>
             <li><Link to='/homes'>Homes</Link></li>

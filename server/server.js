@@ -50,13 +50,7 @@ function isAuthenticated(req, res, next) {
 
 // Route for testing purposes
 app.get('/api/test', (req, res) => {
-  cloudinary.api.resources(function(result) {
-    res.send(result);
-  },
-    {
-      type: 'upload',
-      prefix: '50 Alice Street Unit C, Arcadia, CA 91006/'
-    });
+  res.send(req.session);
 });
 
 // Route for login
@@ -135,6 +129,10 @@ app.post('/api/currenthome', (req, res) => {
   res.end();
 });
 
+app.get('/api/currenthome', (req, res) => {
+  res.send(req.session.currentHome);
+});
+
 // Route for updating the current area a user is looking at
 app.post('/api/currentarea', (req, res) => {
   req.session.currentArea = req.body.area;
@@ -178,6 +176,7 @@ app.get('/api/areahomes', (req, res) => {
 
 // Route for getting pictures related to a certain home
 app.get('/api/homepictures', (req, res) => {
+  console.log(req.session.currentHome);
   cloudinary.api.resources(function(result) {
     res.send(result);
   },

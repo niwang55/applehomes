@@ -26,7 +26,7 @@ export default class Homes extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('/api/homes')
     .then(response => {
       this.setState({
