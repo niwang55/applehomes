@@ -113,7 +113,7 @@ app.post('/api/homes', isAuthenticated, (req, res) => {
 });
 
 // Route for uploading pictures to new home
-app.post('/api/homepictures', isAuthenticated (req, res) => {
+app.post('/api/homepictures', isAuthenticated, (req, res) => {
   cloudinary.v2.uploader.upload(req.body.file64, {folder: req.body.address});
 
   res.end();
