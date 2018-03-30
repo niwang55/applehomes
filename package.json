@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
+    "build": "webpack",
     "startnodemon": "nodemon server/server.js",
-    "test": "npm test",
+    "forever": "forever start server/server.js",
     "dev": "nodemon server/server.js & webpack-dev-server --content-base client --open --inline --hot"
   },
   "repository": {
