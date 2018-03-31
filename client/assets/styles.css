@@ -419,7 +419,9 @@ a {
   font: 16px 'Arapey'; }
 
 .edithomes-homes div {
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  background: lightgray;
+  width: 800px; }
 
 /*
  Edit Single Home Page
