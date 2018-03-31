@@ -49,9 +49,9 @@ function isAuthenticated(req, res, next) {
 // Routes
 
 // Route for testing purposes
-app.get('/api/test', (req, res) => {
-  res.send(req.session);
-});
+// app.get('/api/test', (req, res) => {
+//   res.send(req.session);
+// });
 
 // Route for login
 app.post('/api/login', (req, res) => {
@@ -176,7 +176,6 @@ app.get('/api/areahomes', (req, res) => {
 
 // Route for getting pictures related to a certain home
 app.get('/api/homepictures', (req, res) => {
-  console.log(req.session.currentHome);
   cloudinary.api.resources(function(result) {
     res.send(result);
   },

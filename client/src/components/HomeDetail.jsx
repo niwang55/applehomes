@@ -25,7 +25,7 @@ export default class HomeDetail extends Component {
       });
 
       this.setState({
-        googleMapUrl: `https://www.google.com/maps/embed/v1/place?key=${config.GOOGLE_API}&q=${this.state.home.address}`
+        googleMapUrl: `https://www.google.com/maps/embed/v1/place?key=${config.GOOGLE_API}&q=${this.state.home.area}`
       });
     })
     .catch(error => {
