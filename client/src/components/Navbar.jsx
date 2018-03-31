@@ -11,6 +11,7 @@ export default class Navbar extends Component {
       <div>
 
         <div className="top-banner">
+          <img className='logo' src='../../assets/photos/logo.png'/>
           <h1>Apple Homestay</h1>
           <nav className="navbar">
             <li><Link to='/about'>About</Link></li>

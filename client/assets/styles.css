@@ -28,6 +28,8 @@ a {
   z-index: 100;
   position: fixed;
   transition: all 0.6s ease-out; }
+  .top-banner .logo {
+    width: 100px; }
   .top-banner h1 {
     color: black; }
   .top-banner .navbar {
