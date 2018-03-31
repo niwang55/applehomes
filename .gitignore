@@ -6,6 +6,7 @@ client/compiled
 server/config.js
 
 # SASS
+.sass-cache
 client/assets/.sass-cache
 client/assets/styles.css.map
 

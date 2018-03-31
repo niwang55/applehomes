@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node server/server.js",
     "build": "webpack",
+    "sasscompile": "sass client/assets/styles.scss:client/assets/styles.css",
+    "sasscompilewatch": "sass client/assets/styles.scss:client/assets/styles.css -w",
     "startnodemon": "nodemon server/server.js",
     "forever": "forever start server/server.js",
     "dev": "nodemon server/server.js & webpack-dev-server --content-base client --open --inline --hot"
