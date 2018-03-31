@@ -49,11 +49,10 @@ export default class NewHome extends Component {
   homesMap(home, index) {
     return (
       <div key={index}>
-        <p>
-          {home.address}
+          <h2>{home.address}</h2>
+          <h4>{home.title}</h4>
           <button onClick={this.handleDeleteClick.bind(this, home.address)}>Delete</button>
           <button onClick={this.handleEditClick.bind(this, home.address)}>Edit</button>
-        </p>
       </div>
     );
   }

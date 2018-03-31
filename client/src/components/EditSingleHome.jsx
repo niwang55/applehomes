@@ -8,6 +8,7 @@ export default class EditSingleHome extends Component {
 
     this.state = {
       address: null,
+      title: null,
       link: null,
       summary: null,
       description: null,
@@ -32,6 +33,7 @@ export default class EditSingleHome extends Component {
     .then(response => {
       this.setState({
         address: response.data.address,
+        title: response.data.title,
         link: response.data.link,
         summary: response.data.summary,
         description: response.data.description,
@@ -55,6 +57,12 @@ export default class EditSingleHome extends Component {
   handleAddressChange(e) {
     this.setState({
       address: e.target.value
+    });
+  }
+
+  handleTitleChange(e) {
+    this.setState({
+      title: e.target.value
     });
   }
 
@@ -175,6 +183,7 @@ export default class EditSingleHome extends Component {
             <h3>There is no way to change the address or pictures, if you want to change the address/pictures, delete a listing and relist it.</h3>
             <div className="newhome-form">
 
+              Title: <input value={this.state.title} onChange={this.handleTitleChange.bind(this)} type="text" />
               AirBnB Link: <input value={this.state.link} onChange={this.handleLinkChange.bind(this)} type="text" />
               Summary: <textarea value={this.state.summary} onChange={this.handleSummaryChange.bind(this)} rows="10" />
               Description: <textarea value={this.state.description} onChange={this.handleDescriptionChange.bind(this)} rows="10" />

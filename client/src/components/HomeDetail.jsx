@@ -94,7 +94,7 @@ export default class HomeDetail extends Component {
 
         { this.state.home &&
           <div className="homedetail-address">
-            <h1>{this.state.home.address}</h1>
+            <h1>{this.state.home.title}</h1>
           </div>
         }
 

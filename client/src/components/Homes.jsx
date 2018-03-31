@@ -230,7 +230,7 @@ export default class Homes extends Component {
   homesMap(home, index) {
     return (
       <div className="homecard" key={index} onClick={this.handleHomeClick.bind(this, home)}>
-        <h1>{home.address}</h1>
+        <h1>{home.title}</h1>
         <div className="homecard-info">
           <div>
             <div><i className="fa fa-money" aria-hidden="true"></i>${home.price}</div>

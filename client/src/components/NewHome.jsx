@@ -9,6 +9,7 @@ export default class NewHome extends Component {
 
     this.state = {
       address: null,
+      title: null,
       link: null,
       summary: null,
       description: null,
@@ -32,6 +33,12 @@ export default class NewHome extends Component {
   handleAddressChange(e) {
     this.setState({
       address: e.target.value
+    });
+  }
+
+  handleTitleChange(e) {
+    this.setState({
+      title: e.target.value
     });
   }
 
@@ -176,6 +183,7 @@ export default class NewHome extends Component {
         <div className="newhome-form">
 
           <input onChange={this.handleAddressChange.bind(this)} type="text" placeholder="address" />
+          <input onChange={this.handleTitleChange.bind(this)} type="text" placeholder="title" />
           <input onChange={this.handleLinkChange.bind(this)} type="text" placeholder="AirBnB link" />
           <textarea onChange={this.handleSummaryChange.bind(this)} rows="10" placeholder="summary" />
           <textarea onChange={this.handleDescriptionChange.bind(this)} rows="10" placeholder="description" />

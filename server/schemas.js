@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const Home = mongoose.model('Home', {
   address: String,
+  title: String,
   link: String,
   summary: String,
   description: String,
